@@ -4,7 +4,7 @@ class MiFooter
     this.innerHTML = /* html */
       `<p>
         &copy; 2021
-        Rojas Rodríguez Roberto Yael.
+        Rojas Rodríguez Roberto Yael prueba.
       </p>`;
   }
 }
