@@ -23,6 +23,13 @@ header {
     var(--color-header);
 }
 
+mi-arts {
+  display: block;
+  margin: 1rem;
+  font-size: small;
+  text-align: center;
+}
+
 .herramientas {
   display: flex;
   flex-flow: wrap;
