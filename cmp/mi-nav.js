@@ -42,10 +42,6 @@ class MiNav extends HTMLElement {
           `<li>
             <a href=
               "chat.html">Chat</a>
-          </li>
-          <li>
-            <a href=
-"pasatiempos.html">Articulos</a>
           </li>`;
       }
       /* Enlaces para solo
@@ -55,6 +51,10 @@ class MiNav extends HTMLElement {
         "Administrador")) {
         html += /* html */
           `<li>
+            <a href=
+"pasatiempos.html">Pasatiempos</a>
+          </li>
+          <li>
             <a href=
       "usuarios.html">Usuarios</a>
           </li>`;
@@ -66,3 +66,4 @@ class MiNav extends HTMLElement {
 
 customElements.define(
   "mi-nav", MiNav);
+
