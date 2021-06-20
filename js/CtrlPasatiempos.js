@@ -32,8 +32,7 @@ async function protege(usuario) {
 }
 
 function consulta() {
-  daoArticulos.
-    orderBy("nombre")
+  daoArticulos
     .onSnapshot(
       htmlLista, errConsulta);
 }
