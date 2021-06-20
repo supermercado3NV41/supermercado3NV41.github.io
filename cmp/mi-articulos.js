@@ -31,7 +31,7 @@ class MiArts extends HTMLElement {
           usu.email);
       /* Enlaces para solo
        * para clientes. */
-      if (roles.has("Trabajador")) {
+      if (roles.has("Administrador")) {
         html += /* html */
           `<div class="herramientas">
            <a
