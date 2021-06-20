@@ -7,15 +7,15 @@ import {
   muestraError
 } from "../lib/util.js";
 import {
-  muestraPasatiempos
+  muestraArticulos
 } from "./navegacion.js";
 import {
   tieneRol
 } from "./seguridad.js";
 
-const daoPasatiempo =
+const daoArticulos =
   getFirestore().
-    collection("Pasatiempo");
+    collection("Articulos");
 const params =
   new URL(location.href).
     searchParams;
@@ -31,7 +31,7 @@ getAuth().onAuthStateChanged(
     usuario */
 async function protege(usuario) {
   if (tieneRol(usuario,
-    ["Administrador"])) {
+    ["Trabajador"])) {
     busca();
   }
 }
@@ -41,7 +41,7 @@ async function protege(usuario) {
 async function busca() {
   try {
     const doc =
-      await daoPasatiempo.
+      await daoArticulos.
         doc(id).
         get();
     if (doc.exists) {
@@ -52,6 +52,10 @@ async function busca() {
       const data = doc.data();
       forma.nombre.value =
         data.nombre || "";
+      forma.precio.value =
+        data.precio || "";
+      forma.descripcion.value =
+        data.descripcion || "";
       forma.addEventListener(
         "submit", guarda);
       forma.eliminar.
@@ -63,7 +67,7 @@ async function busca() {
     }
   } catch (e) {
     muestraError(e);
-    muestraPasatiempos();
+    muestraArticulos();
   }
 }
 
@@ -75,17 +79,23 @@ async function guarda(evt) {
       new FormData(forma);
     const nombre = getString(
       formData, "nombre").trim();
+    const precio = getString(
+      formData, "precio").trim();
+    const descripcion = getString(
+      formData, "descripcion").trim();
     /**
      * @type {
         import("./tipos.js").
                 Pasatiempo} */
     const modelo = {
-      nombre
+      nombre,
+      precio,
+      descripcion
     };
-    await daoPasatiempo.
+    await daoArticulos.
       doc(id).
       set(modelo);
-    muestraPasatiempos();
+    muestraArticulos();
   } catch (e) {
     muestraError(e);
   }
@@ -95,10 +105,10 @@ async function elimina() {
   try {
     if (confirm("Confirmar la " +
       "eliminación")) {
-      await daoPasatiempo.
+      await daoArticulos.
         doc(id).
         delete();
-      muestraPasatiempos();
+      muestraArticulos();
     }
   } catch (e) {
     muestraError(e);
