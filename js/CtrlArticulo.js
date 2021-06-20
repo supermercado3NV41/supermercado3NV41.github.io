@@ -30,8 +30,9 @@ getAuth().onAuthStateChanged(
     "../lib/tiposFire.js").User}
     usuario */
 async function protege(usuario) {
-  if (tieneRol(usuario,
-    ["Trabajador"])) {
+  if (tieneRol(usuario,["Cliente"])||
+     tieneRol(usuario,["Trabajador"])||
+     tieneRol(usuario,["Administrador"])) {
     busca();
   }
 }
