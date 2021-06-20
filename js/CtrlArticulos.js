@@ -72,7 +72,8 @@ function htmlFila(doc) {
   const parámetros =
     new URLSearchParams();
   parámetros.append("id", doc.id);
-  return ( /* html */
+if (tieneRol(usuario,["Cliente"])) {
+return ( /* html */
     `<li>
       <a class="fila" href=
   "articulo.html?${parámetros}">
@@ -87,6 +88,30 @@ function htmlFila(doc) {
           ${descripcion}
       </strong>
     </li>`);
+  }
+  if (tieneRol(usuario,["Cliente"])) {
+return ( /* html */
+    `<div class="herramientas">
+           <a
+               href="articuloNuevo.html">
+               Agregar…</a>
+           </div>
+    <li>
+      <a class="fila" href=
+  "articulo.html?${parámetros}">
+        <strong class="primario">
+          ${nombre}
+        </strong>
+      </a>
+      <strong class="secundario">
+          ${precio}
+      </strong>
+      <strong class="secundario">
+          ${descripcion}
+      </strong>
+    </li>`);
+  }
+
 }
 
 /** @param {Error} e */
