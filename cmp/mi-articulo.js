@@ -63,7 +63,7 @@ class MiArt extends HTMLElement {
        * administradores.
        */
       else if (roles.has(
-        "Trabajador")) {
+        "Trabajador"||roles.has("Administrador"))) {
         html += /* html */
           `<p>
       <label>
