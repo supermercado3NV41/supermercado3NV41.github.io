@@ -1,5 +1,5 @@
 export function
-  muestraPasatiempos() {
+  muestraArticulos() {
   location.href =
     "pasatiempos.html";
 }
