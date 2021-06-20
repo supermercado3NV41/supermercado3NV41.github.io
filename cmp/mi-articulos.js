@@ -30,7 +30,7 @@ class MiArts extends HTMLElement {
         await cargaRoles(
           usu.email);
       /* Enlaces para solo
-       * para clientes. */
+       * para administradores. */
       if (roles.has("Administrador")) {
         html += /* html */
           `<div class="herramientas">
