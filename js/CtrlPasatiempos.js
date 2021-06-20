@@ -13,9 +13,9 @@ import {
 /** @type {HTMLUListElement} */
 const lista = document.
   querySelector("#lista");
-const daoPasatiempo =
+const daoArticulos =
   getFirestore().
-    collection("Pasatiempo");
+    collection("Articulos");
 
 getAuth().
   onAuthStateChanged(
@@ -26,13 +26,13 @@ getAuth().
     usuario */
 async function protege(usuario) {
   if (tieneRol(usuario,
-    ["Administrador"])) {
+    ["Trabajador"])) {
     consulta();
   }
 }
 
 function consulta() {
-  daoPasatiempo.
+  daoArticulos.
     orderBy("nombre")
     .onSnapshot(
       htmlLista, errConsulta);
@@ -50,8 +50,7 @@ function htmlLista(snap) {
   } else {
     html += /* html */
       `<li class="vacio">
-        -- No hay pasatiempos
-        registrados. --
+        -- La tienda no tiene ningun articulo en este momento. --
       </li>`;
   }
   lista.innerHTML = html;
@@ -67,6 +66,8 @@ function htmlFila(doc) {
                   Pasatiempo} */
   const data = doc.data();
   const nombre = cod(data.nombre);
+  const precio = cod(data.precio);
+  const descripcion = cod(data.descripcion);
   const parámetros =
     new URLSearchParams();
   parámetros.append("id", doc.id);
@@ -78,6 +79,12 @@ function htmlFila(doc) {
           ${nombre}
         </strong>
       </a>
+      <strong class="secundario">
+          ${precio}
+      </strong>
+      <strong class="secundario">
+          ${descripcion}
+      </strong>
     </li>`);
 }
 
