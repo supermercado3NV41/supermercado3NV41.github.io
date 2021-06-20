@@ -11,7 +11,6 @@ import {
 import {
   checksRoles,
   guardaUsuario,
-  selectPasatiempos
 } from "./usuarios.js";
 
 /** @type {HTMLFormElement} */
@@ -31,8 +30,6 @@ async function protege(usuario) {
     ["Administrador"])) {
     forma.addEventListener(
       "submit", guarda);
-    selectPasatiempos(
-      forma.pasatiempoId, "");
     checksRoles(listaRoles, []);
   }
 }
@@ -42,7 +39,7 @@ async function guarda(evt) {
   const formData =
     new FormData(forma);
   const id = getString(
-    formData, "cue").trim();
+    formData, "correo").trim();
   await guardaUsuario(evt,
     formData, id);
 }
