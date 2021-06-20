@@ -1,7 +1,7 @@
 export function
   muestraArticulos() {
   location.href =
-    "pasatiempos.html";
+    "articulos.html";
 }
 
 export function
