@@ -6,7 +6,7 @@
     content="width=device-width,
        initial-scale=1.0">
   <title>
-    Pasatiempo Nuevo
+    Agregar articulo
   </title>
   <script
     src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
@@ -29,11 +29,11 @@
   <form name="forma">
     <mi-nav></mi-nav>
     <header>
-      <h1>Pasatiempo Nuevo</h1>
+      <h1>Agregar articulo</h1>
       <div class="herramientas">
         <a
           href="pasatiempos.html">
-          Cancelar</a>
+          Volver</a>
         <button type="submit">
           Guardar
         </button>
@@ -43,6 +43,20 @@
       <label>
         Nombre
         <input name="nombre"
+          type="text" required>
+      </label>
+    </p>
+    <p>
+      <label>
+        Nombre
+        <input name="precio"
+          type="text" required>
+      </label>
+    </p>
+    <p>
+      <label>
+        Nombre
+        <input name="descripcion"
           type="text" required>
       </label>
     </p>
