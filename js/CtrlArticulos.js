@@ -89,7 +89,7 @@ return ( /* html */
       </strong>
     </li>`);
   }
-  if (tieneRol(usuario,["Cliente"])) {
+  if (tieneRol(usuario,["Trabajador"])||tieneRol(usuario,["Administrador"])) {
 return ( /* html */
     `<div class="herramientas">
            <a
