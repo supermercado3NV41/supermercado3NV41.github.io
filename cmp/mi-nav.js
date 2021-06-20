@@ -48,10 +48,6 @@ class MiNav extends HTMLElement {
 "pasatiempos.html">Pasatiempos</a>
           </li>`;
       }
-      if (roles.has(
-        "Trabajador")) {
-        html += /* html */
-      }
       /* Enlaces para solo
        * administradores.
        */
