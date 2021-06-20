@@ -10,10 +10,6 @@ import {
 
 class MiArts extends HTMLElement {
   connectedCallback() {
-    this.innerHTML = /* html */
-      `<p></p>`;
-    this.ul =
-      this.querySelector("ul");
     getAuth().onAuthStateChanged(
       usuario => this.
         cambiaUsuario(usuario),
@@ -42,7 +38,6 @@ class MiArts extends HTMLElement {
         Agregar…</a>
     </div>`;
       }
-      this.ul.innerHTML += html;
     }
   }
 }
