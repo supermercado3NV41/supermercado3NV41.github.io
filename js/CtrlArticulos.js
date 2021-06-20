@@ -75,7 +75,7 @@ function htmlFila(doc) {
   return ( /* html */
     `<li>
       <a class="fila" href=
-  "articulos.html?${parámetros}">
+  "articulo.html?${parámetros}">
         <strong class="primario">
           ${nombre}
         </strong>
