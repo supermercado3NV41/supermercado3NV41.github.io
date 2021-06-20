@@ -10,9 +10,7 @@ import {
 
 class MiArt extends HTMLElement {
   connectedCallback() {
-    this.innerHTML = /* html */ ` `;
-    this.ul =
-      this.querySelector("ul");
+    this.innerHTML = /* html */ `<p></p>`;
     getAuth().onAuthStateChanged(
       usuario => this.
         cambiaUsuario(usuario),
@@ -62,7 +60,7 @@ class MiArt extends HTMLElement {
        * trabajadores y
        * administradores.
        */
-      else if (roles.has(
+      if (roles.has(
         "Trabajador"||roles.has("Administrador"))) {
         html += /* html */
           `<p>
