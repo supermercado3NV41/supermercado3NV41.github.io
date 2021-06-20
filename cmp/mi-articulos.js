@@ -12,6 +12,8 @@ class MiArts extends HTMLElement {
   connectedCallback() {
     this.innerHTML = /* html */
       `<p></p>`;
+    this.ul =
+      this.querySelector("ul");
     getAuth().onAuthStateChanged(
       usuario => this.
         cambiaUsuario(usuario),
