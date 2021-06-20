@@ -10,7 +10,6 @@ import {
 
 class MiArts extends HTMLElement {
   connectedCallback() {
-    this.innerHTML = /* html */ `<p></p>`;
     getAuth().onAuthStateChanged(
       usuario => this.
         cambiaUsuario(usuario),
