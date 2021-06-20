@@ -23,14 +23,13 @@ class MiArts extends HTMLElement {
       usu */
   async cambiaUsuario(usu) {
     if (usu && usu.email) {
-      let html = "";
       const roles =
         await cargaRoles(
           usu.email);
       /* Enlaces para solo
        * para administradores. */
       if (roles.has("Administrador")) {
-        html += /* html */
+        let html = /* html */
           `<div class="herramientas">
            <a
                href="articuloNuevo.html">
