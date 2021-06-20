@@ -7,15 +7,15 @@ import {
   muestraError
 } from "../lib/util.js";
 import {
-  muestraPasatiempos
+  muestraArticulos
 } from "./navegacion.js";
 import {
   tieneRol
 } from "./seguridad.js";
 
-const daoPasatiempo =
+const daoArticulos =
   getFirestore().
-    collection("Pasatiempo");
+    collection("Articulos");
 /** @type {HTMLFormElement} */
 const forma = document["forma"];
 getAuth().onAuthStateChanged(
@@ -26,7 +26,7 @@ getAuth().onAuthStateChanged(
     usuario */
 async function protege(usuario) {
   if (tieneRol(usuario,
-    ["Administrador"])) {
+    ["Trabajador"])) {
     forma.addEventListener(
       "submit", guarda);
   }
@@ -40,16 +40,22 @@ async function guarda(evt) {
       new FormData(forma);
     const nombre = getString(
       formData, "nombre").trim();
+    const precio = getString(
+      formData, "precio").trim();
+    const descripcion = getString(
+      formData, "descripcion").trim();
     /**
      * @type {
         import("./tipos.js").
                 Pasatiempo} */
     const modelo = {
-      nombre
+      nombre,
+      precio,
+      descripcion
     };
-    await daoPasatiempo.
+    await daoArticulos.
       add(modelo);
-    muestraPasatiempos();
+    muestraArticulos();
   } catch (e) {
     muestraError(e);
   }
