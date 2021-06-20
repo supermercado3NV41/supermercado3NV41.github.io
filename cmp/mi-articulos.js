@@ -10,7 +10,7 @@ import {
 
 class MiArts extends HTMLElement {
   connectedCallback() {
-    this.innerHTML = /* html */ ``;
+    this.innerHTML = /* html */ ` `;
     this.ul =
       this.querySelector("ul");
     getAuth().onAuthStateChanged(
