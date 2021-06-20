@@ -30,7 +30,7 @@ class MiArt extends HTMLElement {
       /* Enlaces para solo
        * para clientes. */
       if (roles.has("Cliente")) {
-        html += /* html */
+        html = /* html */
           `<p>
       <label>
         Nombre
@@ -62,7 +62,7 @@ class MiArt extends HTMLElement {
        */
       if (roles.has(
         "Trabajador"||roles.has("Administrador"))) {
-        html += /* html */
+        html = /* html */
           `<p>
       <label>
         Nombre
